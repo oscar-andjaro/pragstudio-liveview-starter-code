@@ -31,17 +31,33 @@ defmodule LiveViewStudioWeb.LightLive do
       <button phx-click="on">
         <img src="images/light-on.svg"/> ON
       </button>
+
+      <button phx-click="light_me_up">
+        Light me up!
+      </button>
     </div>
     """
   end
 
   def handle_event(event, _, socket) do
     case event do
-      "on" -> {:noreply, assign(socket, :brightness, 100)}
-      "off" -> {:noreply, assign(socket, :brightness, 0)}
-      "down" -> {:noreply, update(socket, :brightness, &(&1 - 10))}
-      "up" -> {:noreply, update(socket, :brightness, fn brightness -> brightness + 10 end)}
-      _ -> {:noreply, assign(socket, :brightness, 0)}
+      "on" ->
+        {:noreply, assign(socket, :brightness, 100)}
+
+      "off" ->
+        {:noreply, assign(socket, :brightness, 0)}
+
+      "down" ->
+        {:noreply, update(socket, :brightness, &(&1 - 10))}
+
+      "up" ->
+        {:noreply, update(socket, :brightness, fn brightness -> brightness + 10 end)}
+
+      "light_me_up" ->
+        {:noreply, update(socket, :brightness, fn _ -> :rand.uniform(100) end)}
+
+      _ ->
+        {:noreply, assign(socket, :brightness, 0)}
     end
   end
 end
