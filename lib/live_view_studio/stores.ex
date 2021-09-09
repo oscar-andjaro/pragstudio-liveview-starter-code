@@ -1,5 +1,7 @@
 defmodule LiveViewStudio.Stores do
   def search_by_zip(zip) do
+    :timer.sleep(2000)
+
     list_stores()
     |> Enum.filter(&(&1.zip == zip))
   end
@@ -16,7 +18,7 @@ defmodule LiveViewStudio.Stores do
         street: "312 Montana Avenue",
         phone_number: "406-555-0100",
         city: "Helena, MT",
-        zip: "59602",
+        zip: "08208",
         open: true,
         hours: "8am - 10pm M-F"
       },
@@ -25,7 +27,7 @@ defmodule LiveViewStudio.Stores do
         street: "227 Miner's Lane",
         phone_number: "406-555-0120",
         city: "Helena, MT",
-        zip: "59602",
+        zip: "08208",
         open: false,
         hours: "8am - 10pm M-F"
       },
@@ -34,7 +36,7 @@ defmodule LiveViewStudio.Stores do
         street: "734 Lake Loop",
         phone_number: "406-555-0130",
         city: "Helena, MT",
-        zip: "59602",
+        zip: "08205",
         open: true,
         hours: "8am - 10pm M-F"
       },
@@ -43,7 +45,7 @@ defmodule LiveViewStudio.Stores do
         street: "426 Aspen Loop",
         phone_number: "303-555-0140",
         city: "Denver, CO",
-        zip: "80204",
+        zip: "08201",
         open: true,
         hours: "8am - 10pm M-F"
       },
